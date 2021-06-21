@@ -1,4 +1,3 @@
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -18,28 +17,55 @@ public class Move {
 		}
 	}
 	
-	public void moveUnits(ArrayList<Unit> unitArray, int i, Unit l1, Unit l2, Unit l3, Unit l5, Unit l6, Unit l7, Unit l8) {
+	public void moveUnits(ArrayList<Unit> unitArray, int i, Unit l1, Unit l2, Unit l3a, Unit l3b, Unit l4, Unit l5, Unit l6, Unit l7) {
 			Random r = new Random();
 			
 			int x = unitArray.get(i).memArray.get(r.nextInt(unitArray.get(i).memArray.size()));
-			System.out.println(x);
-			if (!unitArray.get(1).intersects(l1) && !unitArray.get(1).intersects(l2) &&  !unitArray.get(1).intersects(l3)  
-					&& !unitArray.get(1).intersects(l5) &&  !unitArray.get(1).intersects(l6) &&  !unitArray.get(1).intersects(l7) 
-					&&  !unitArray.get(1).intersects(l8) && unitArray.get(1).x <= 537.0 && unitArray.get(1).x >= 241.0)	{
-			if (x == 1)  {
+			
+			// North
+			if (x == 1 && (unitArray.get(i).intersects(l1) || unitArray.get(i).intersects(l2) || (unitArray.get(i).intersects(l3a) && unitArray.get(i).intersects(l3b)) || unitArray.get(i).intersects(l4) 
+						|| unitArray.get(i).intersects(l5) || unitArray.get(i).intersects(l6) || unitArray.get(i).intersects(l7))) {
 				unitArray.get(i).y -= 1;
+				if (!unitArray.get(i).intersects(l1) && !unitArray.get(i).intersects(l2) && (!unitArray.get(i).intersects(l3a) ||  !unitArray.get(i).intersects(l3b)) && !unitArray.get(i).intersects(l4) 
+						&& !unitArray.get(i).intersects(l5) && !unitArray.get(i).intersects(l6) && !unitArray.get(i).intersects(l7)) { 
+					unitArray.get(i).y += 1;
+				}
+				
 			}
-			else if (x == 2)  {
+			// East
+			else if (x == 2 && (unitArray.get(i).intersects(l1) ||  unitArray.get(i).intersects(l2) || (unitArray.get(i).intersects(l3a) && unitArray.get(i).intersects(l3b)) || unitArray.get(i).intersects(l4) 
+					|| unitArray.get(i).intersects(l5) || unitArray.get(i).intersects(l6) || unitArray.get(i).intersects(l7))) {
 				unitArray.get(i).x += 1;
+				if (!unitArray.get(i).intersects(l1) && !unitArray.get(i).intersects(l2) && (!unitArray.get(i).intersects(l3a) ||  !unitArray.get(i).intersects(l3b)) && !unitArray.get(i).intersects(l4) 
+						&& !unitArray.get(i).intersects(l5) && !unitArray.get(i).intersects(l6) && !unitArray.get(i).intersects(l7)) { 
+					unitArray.get(i).x -= 1;
+				}
 			}
-			else if (x == 3)  {
+			// South
+			else if (x == 3 && (unitArray.get(i).intersects(l1) ||  unitArray.get(i).intersects(l2) || (unitArray.get(i).intersects(l3a) && unitArray.get(i).intersects(l3b)) || unitArray.get(i).intersects(l4) 
+					|| unitArray.get(i).intersects(l5) || unitArray.get(i).intersects(l6) || unitArray.get(i).intersects(l7))) {
 				unitArray.get(i).y += 1;
-			}
-			else if (x == 4)  {
+				if (!unitArray.get(i).intersects(l1) && !unitArray.get(i).intersects(l2) && (!unitArray.get(i).intersects(l3a) ||  !unitArray.get(i).intersects(l3b)) && !unitArray.get(i).intersects(l4) 
+						&& !unitArray.get(i).intersects(l5) && !unitArray.get(i).intersects(l6) && !unitArray.get(i).intersects(l7)) { 
+					unitArray.get(i).y -= 1;
+				}
+			} 
+			// West
+			else if (x == 4 && (unitArray.get(i).intersects(l1) ||  unitArray.get(i).intersects(l2) || (unitArray.get(i).intersects(l3a) && unitArray.get(i).intersects(l3b)) || unitArray.get(i).intersects(l4) 
+					|| unitArray.get(i).intersects(l5) || unitArray.get(i).intersects(l6) || unitArray.get(i).intersects(l7))) {
 				unitArray.get(i).x -= 1;
+				if (!unitArray.get(i).intersects(l1) && !unitArray.get(i).intersects(l2) && (!unitArray.get(i).intersects(l3a) || !unitArray.get(i).intersects(l3b)) && !unitArray.get(i).intersects(l4) 
+						&& !unitArray.get(i).intersects(l5) && !unitArray.get(i).intersects(l6) && !unitArray.get(i).intersects(l7)) { 
+					unitArray.get(i).x += 1;
+				}
+			}
+		}
+		
+		
+		public void Learn(ArrayList<Integer> l) {
+			
 			}
 		}
 			
-	}
 
-}
+

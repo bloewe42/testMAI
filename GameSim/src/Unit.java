@@ -37,11 +37,6 @@ public class Unit extends Rectangle {
 		if (!out) {
 			g.drawImage(UnitImage, x, y, width, height, c);
 		}
-		else {
-			out = false;
-			this.x = 124;
-			this.y = 236;
-		}
 	}
 
 }
