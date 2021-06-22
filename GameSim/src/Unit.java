@@ -19,6 +19,7 @@ public class Unit extends Rectangle {
 	String unitID, path;
 	BigInteger b;
 	ArrayList<Integer> memArray = new ArrayList<>();
+	ArrayList<Integer> pathArray = new ArrayList<>();
 
 
 	Unit(int x, int y, int w, int h, String path) throws IOException {

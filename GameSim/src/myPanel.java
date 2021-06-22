@@ -12,7 +12,7 @@ public class myPanel extends JPanel implements KeyListener {
 	private static final long serialVersionUID = 4898126438312543377L;
 	ArrayList<Unit> unitArray = new ArrayList<>();
 	Move m = new Move();
-
+	Unit g = new Unit(522, 26, 1, 1, "layoutE.png");
 
 	Unit ball1 = new Unit(250, 160, 20, 20, "ball.png");
 	Unit ball2 = new Unit(528, 200, 20, 20, "ball.png");
@@ -59,18 +59,6 @@ public class myPanel extends JPanel implements KeyListener {
 	@Override
 	public void paintComponent(Graphics g) {
 		layout.draw(g, this);
-		//layoutE.draw(g, this);
-		//layout1.draw(g, this);
-		//layout2a.draw(g, this);
-		//layout2b.draw(g, this);
-		//layout3a.draw(g, this);
-		//layout3b.draw(g, this);
-		//layout4.draw(g, this);
-		//layout5a.draw(g, this);
-		//layout5b.draw(g, this);
-		//layout6a.draw(g, this);
-		//layout6b.draw(g, this);
-		//layout7.draw(g, this);
 
 		ball1.draw(g, this);
 		ball2.draw(g, this);
@@ -85,6 +73,7 @@ public class myPanel extends JPanel implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			new Thread(() -> {
 				while (true) {
