@@ -21,12 +21,11 @@ public class Unit extends Rectangle {
 	ArrayList<Integer> memArray = new ArrayList<>();
 
 
-	Unit(int x, int y, int w, int h, String unitID, String path) throws IOException {
+	Unit(int x, int y, int w, int h, String path) throws IOException {
 		this.x = x;
 		this.y = y;
 		this.width = w;
 		this.height = h;
-		this.unitID = unitID;
 		this.path = path;
 		moveX = 1;
 
